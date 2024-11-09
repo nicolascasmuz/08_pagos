@@ -7,5 +7,5 @@ mercadopago.configure({
 export async function getMerchantOrder(id) {
   console.log(mercadopago);
   const res = mercadopago.merchant_orders.get(id);
-  console.log(res);
+  console.log("res.body: ", res.body);
 }
