@@ -6,8 +6,7 @@ import {
 } from "mercadopago";
 
 const client = new MercadoPagoConfig({
-  accessToken:
-    "TEST-8588826682518887-110711-70ae810f094ca26055ba8d2875ba3603-58380578",
+  accessToken: process.env.MP_TOKEN,
   options: { timeout: 5000, idempotencyKey: "abc" },
 });
 
@@ -16,7 +15,8 @@ const merchantOrder = new MerchantOrder(client);
 export async function getMerchantOrder(merchantOrderID) {
   console.log("merchantOrderID: ", merchantOrderID, typeof merchantOrderID);
   const orderRes = await merchantOrder.get(merchantOrderID);
-  console.log();
+  console.log("orderRes: ", orderRes);
+
   return orderRes;
 }
 
