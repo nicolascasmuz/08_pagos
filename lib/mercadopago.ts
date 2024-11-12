@@ -1,10 +1,31 @@
-import mercadopago from "mercadopago";
+import {
+  MercadoPagoConfig,
+  MerchantOrder,
+  Preference,
+  Payment,
+} from "mercadopago";
 
-mercadopago.configure({
-  access_token: process.env.MP_TOKEN,
+const client = new MercadoPagoConfig({
+  accessToken: process.env.MP_TOKEN,
 });
 
-export async function getMerchantOrder(id) {
-  const res = await mercadopago.merchant_orders.get(id);
-  console.log({ res });
+const merchantOrder = new MerchantOrder(client);
+
+export async function getMerchantOrder(merchantOrderID) {
+  const order = merchantOrder.get(merchantOrderID);
+  return order;
+}
+
+const payment = new Payment(client);
+
+export async function getPayment(paymentID) {
+  const paymentRes = payment.get(paymentID);
+  return paymentRes;
+}
+
+const preference = new Preference(client);
+
+export async function createPreference(body) {
+  const myPreference = await preference.create({ body });
+  return myPreference;
 }

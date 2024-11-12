@@ -1,5 +1,5 @@
 {
-  "name": "passwordless",
+  "name": "08_pagos",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "date-fns": "^4.1.0",
     "firebase-admin": "^12.7.0",
     "jsonwebtoken": "^9.0.2",
-    "mercadopago": "^1.5.15",
+    "mercadopago": "^2.0.15",
     "micro-method-router": "^0.1.0",
     "next": "^14.2.4",
     "parse-bearer-token": "^1.0.1",
