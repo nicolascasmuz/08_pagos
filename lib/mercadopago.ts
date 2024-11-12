@@ -12,14 +12,14 @@ const client = new MercadoPagoConfig({
 const merchantOrder = new MerchantOrder(client);
 
 export async function getMerchantOrder(merchantOrderID) {
-  const order = merchantOrder.get(merchantOrderID);
+  const order = await merchantOrder.get(merchantOrderID);
   return order;
 }
 
 const payment = new Payment(client);
 
 export async function getPayment(paymentID) {
-  const paymentRes = payment.get(paymentID);
+  const paymentRes = await payment.get(paymentID);
   return paymentRes;
 }
 
