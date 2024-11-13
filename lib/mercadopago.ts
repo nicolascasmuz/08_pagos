@@ -6,8 +6,7 @@ import {
 } from "mercadopago";
 
 const client = new MercadoPagoConfig({
-  accessToken:
-    "APP_USR-6350029159038680-111309-f2f8320541147c0565b84b77243e48a9-2095817548",
+  accessToken: process.env.MP_TOKEN,
 });
 
 const merchantOrder = new MerchantOrder(client);
