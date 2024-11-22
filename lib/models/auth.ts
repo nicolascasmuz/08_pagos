@@ -54,7 +54,9 @@ class Auth {
     }
 
     if (auth && auth.data.code == code && isBeforeRes) {
-      var tokenValue = generate({ email });
+      const authData = auth.data;
+      const userID = authData.userID;
+      var tokenValue = generate({ userID });
       token = tokenValue;
     }
 

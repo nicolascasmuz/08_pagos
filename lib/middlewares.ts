@@ -4,7 +4,6 @@ import { decode } from "lib/jwt";
 
 function authMiddleware(req: NextApiRequest, res: NextApiResponse, callback) {
   const token = parseBearerToken(req);
-
   if (!token) {
     res.status(401).json({ message: "no token" });
   }
@@ -12,9 +11,10 @@ function authMiddleware(req: NextApiRequest, res: NextApiResponse, callback) {
   const decodedToken = decode(token);
 
   if (decodedToken) {
-    callback(decodedToken);
+    const userData = callback(decodedToken);
+    return userData;
   } else {
-    res.status(401).json({ message: "incorrect token" });
+    return { message: "incorrect token" };
   }
 }
 
