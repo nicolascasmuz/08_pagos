@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next"
+    "start": "next",
+    "test": "ava"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ava": "^6.2.0",
     "date-fns": "^4.1.0",
+    "esbuild-node-loader": "^0.8.0",
     "firebase-admin": "^12.7.0",
     "jsonwebtoken": "^9.0.2",
     "mercadopago": "^2.0.15",
@@ -28,5 +31,18 @@
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "typescript": "^5.6.3"
+  },
+  "ava": {
+    "nodeArguments": [
+      "--loader=esbuild-node-loader",
+      "--experimental-specifier-resolution=node"
+    ],
+    "environmentVariables": {
+      "TESTING": "true",
+      "JWT_SECRET": "123123asdasd"
+    },
+    "extensions": {
+      "ts": "module"
+    }
   }
 }
